@@ -22,6 +22,7 @@ object SimpleApp {
 
     val countDF = spark.sql("select Country, count(1) as count from survey_tbl where Age<40 group by Country")
     countDF.show(false)
+    println(countDF.collect().mkString("->"))
     logger.info(countDF.collect().mkString("->"))
     spark.stop()
   }
