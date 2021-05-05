@@ -9,7 +9,8 @@ val sparkVersion = "3.0.0-preview2"
 
 val sparkDependencies = Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
-  "org.apache.spark" %% "spark-sql" % sparkVersion
+  "org.apache.spark" %% "spark-sql" % sparkVersion,
+  "org.apache.spark" %% "spark-streaming" % sparkVersion
 )
 
 libraryDependencies ++= sparkDependencies
