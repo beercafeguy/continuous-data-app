@@ -1,2 +1,6 @@
 *.class
 *.log
+output
+chk-point-dir
+target
+*.iml

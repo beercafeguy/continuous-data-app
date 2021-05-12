@@ -1,1 +1,1 @@
-java -cp ./* guru.learningjournal.kafka.examples.PosSimulator invoices 1 1000
+java -cp ./*.jar guru.learningjournal.kafka.examples.PosSimulator invoices 1 1000
