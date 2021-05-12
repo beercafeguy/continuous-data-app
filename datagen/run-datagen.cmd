@@ -1,0 +1,1 @@
+java -cp ./* guru.learningjournal.kafka.examples.PosSimulator simple_invoices 1 2000

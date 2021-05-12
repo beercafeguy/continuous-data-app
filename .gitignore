@@ -4,3 +4,4 @@ output
 chk-point-dir
 target
 *.iml
+.idea
