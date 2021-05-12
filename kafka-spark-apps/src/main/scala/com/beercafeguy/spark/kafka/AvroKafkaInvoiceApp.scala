@@ -38,7 +38,7 @@ object AvroKafkaInvoiceApp {
 
     val kafkaTargetDF=flattenedDF.
       select(expr("InvoiceNumber as key"),
-        to_avro(struct("*")))
+        to_avro(struct("*")).as("value"))
 
     val invoiceWriterQuery = kafkaTargetDF.writeStream
       .queryName("Notification Sender")
