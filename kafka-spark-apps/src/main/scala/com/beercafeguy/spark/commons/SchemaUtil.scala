@@ -4,6 +4,16 @@ import org.apache.spark.sql.types.{ArrayType, DoubleType, IntegerType, LongType,
 
 object SchemaUtil {
 
+
+  val stockSchema=StructType(
+    List(
+      StructField("CreatedTime",StringType),
+      StructField("Type",StringType),
+      StructField("Amount",IntegerType),
+      StructField("BrokerCode",StringType)
+    )
+  )
+
   def getSchema():StructType={
     val schema = StructType(List(
       StructField("InvoiceNumber", StringType),

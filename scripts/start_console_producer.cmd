@@ -1,0 +1,1 @@
+%KAFKA_HOME%\bin\windows\kafka-console-producer.bat --broker-list localhost:9093 --topic market_trades
