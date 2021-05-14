@@ -53,6 +53,9 @@ object TumblingWindowApp {
     val windowedQuery=resultDF.writeStream
       .format("console")
       .outputMode("update")
+      // in complete mode the whole state will be sent to output -> no cleanup of state store due to water mark
+      // so watermark will be overridden by complete mode
+      // In Append -> not allowed in aggregates without watermark (will only emit record to sink if it won't update in future)
       .option("checkpointLocation", "chk-point-dir/tumb_window")
       .trigger(Trigger.ProcessingTime("1 minute"))
       .start()

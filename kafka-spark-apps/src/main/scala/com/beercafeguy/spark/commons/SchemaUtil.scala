@@ -5,6 +5,13 @@ import org.apache.spark.sql.types.{ArrayType, DoubleType, IntegerType, LongType,
 object SchemaUtil {
 
 
+  val sensorSchema=StructType(
+    List(
+      StructField("CreatedTime",StringType),
+      StructField("Reading",DoubleType)
+    )
+  )
+
   val stockSchema=StructType(
     List(
       StructField("CreatedTime",StringType),
