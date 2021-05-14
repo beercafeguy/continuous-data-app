@@ -26,7 +26,6 @@ object StreamStaticJoinApp {
 
 
     val valueDF = invoiceStream.select(
-      col("key").cast("string").alias("SensorID"),
       from_json(col("value").cast("string"), SchemaUtil.loginSchema).alias("value"))
       .select("value.*")
 

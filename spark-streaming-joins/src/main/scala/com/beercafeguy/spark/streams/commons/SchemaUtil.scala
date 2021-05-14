@@ -11,4 +11,15 @@ object SchemaUtil {
       StructField("login_id",StringType)
     )
   )
+
+  val impressionSchema = StructType(List(
+    StructField("InventoryID", StringType),
+    StructField("CreatedTime", StringType),
+    StructField("Campaigner", StringType)
+  ))
+
+  val clickSchema = StructType(List(
+    StructField("InventoryID", StringType),
+    StructField("CreatedTime", StringType)
+  ))
 }
