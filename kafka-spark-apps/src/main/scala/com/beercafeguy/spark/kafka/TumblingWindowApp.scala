@@ -15,11 +15,11 @@ object TumblingWindowApp {
     import spark.implicits._
 
     val invoiceStream=spark
-      .read //change to read to make it a simple batch app
+      .readStream //change to read to make it a simple batch app
       .format("kafka")
       .option("kafka.bootstrap.servers", "localhost:9093")
       .option("subscribe", "market_trades")
-      .option("startingOffsets", "earliest")
+      .option("startingOffsets", "latest")
       .option("failOnDataLoss","false")
       .load()
 
@@ -33,7 +33,9 @@ object TumblingWindowApp {
       .drop("Type","Amount")
     //mappedDF.printSchema()
 
-    val windowedDF=mappedDF.groupBy(window($"CreatedTime","15 minute"))
+    val windowedDF=mappedDF
+      .withWatermark("CreatedTime","30 minute")
+      .groupBy(window($"CreatedTime","15 minute"))
     val resultDF=windowedDF.agg(sum($"Buy").as("Total_Buy"),sum($"Sell").as("Total_Sell"))
       .select($"window.start",$"window.end",$"Total_Buy",$"Total_Sell")
     resultDF.printSchema()
