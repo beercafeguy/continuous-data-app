@@ -50,8 +50,14 @@ object StreamStreamJoinWatermarkApp {
 
     //userDF.printSchema()
 
+    //this expression is required for outer joins
+    //val joinExpr = impressionDF("ImpressionId")===clickDF("ClickId")
+    //&& $"ClickTime" between $"ImpressionTime" AND $"ImpressionTime" + interval 15 mins
+
+    //this expression is required for inner joins
     val joinExpr = impressionDF("ImpressionId")===clickDF("ClickId")
     val joinType = "inner"
+    //val joinType = "leftOuter" -> Left outer join
     val joinedDF = impressionDF.join(clickDF, joinExpr, joinType)
 
     val outputQuery = joinedDF.writeStream
