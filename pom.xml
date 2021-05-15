@@ -14,6 +14,7 @@
     <modules>
         <module>kafka-spark-apps</module>
         <module>spark-streaming-joins</module>
+        <module>spark-streaming-custom-agg</module>
     </modules>
 
     <properties>

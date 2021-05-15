@@ -5,5 +5,6 @@ REM %KAFKA_HOME%\bin\windows\kafka-topics.bat --create --bootstrap-server localh
 REM %KAFKA_HOME%\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9093 --replication-factor 1 --partitions 1 --topic market_trades
 REM %KAFKA_HOME%\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9093 --replication-factor 1 --partitions 1 --topic sensor_topic
 REM %KAFKA_HOME%\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9093 --replication-factor 1 --partitions 1 --topic logins
-%KAFKA_HOME%\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9093 --replication-factor 1 --partitions 1 --topic impressions
-%KAFKA_HOME%\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9093 --replication-factor 1 --partitions 1 --topic clicks
+REM %KAFKA_HOME%\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9093 --replication-factor 1 --partitions 1 --topic impressions
+REM %KAFKA_HOME%\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9093 --replication-factor 1 --partitions 1 --topic clicks
+%KAFKA_HOME%\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9093 --replication-factor 1 --partitions 1 --topic rates
