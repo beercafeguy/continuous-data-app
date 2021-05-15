@@ -13,15 +13,16 @@ object CustomAggApp {
 
     val rate = spark
       .readStream
-      .format("kafka")
-      .option("kafka.bootstrap.servers", "localhost:9093")
-      .option("subscribe", "rates")
-      .option("startingOffsets", "earliest")
-      .option("failOnDataLoss","false")
+      .format("rate")
+      //.format("kafka")
+      //.option("kafka.bootstrap.servers", "localhost:9093")
+      //.option("subscribe", "rates")
+      //.option("startingOffsets", "earliest")
+      //.option("failOnDataLoss","false")
       .load()
-      .select(from_json($"value".cast("string"),rateSchema).as("value"))
-      .select("value.*")
-      .withColumn("ts",to_timestamp($"ts","yyyy-MM-dd HH:mm:ss"))
+      //.select(from_json($"value".cast("string"),rateSchema).as("value"))
+      //.select("value.*")
+      //.withColumn("ts",to_timestamp($"ts","yyyy-MM-dd HH:mm:ss"))
       .as[Rate]
     val weatherEvents = rate.map{case Rate(ts, value) => WeatherEvent(pickOne(uids), ts, locationGenerator(), pressureGen(), tempGen())}
 
